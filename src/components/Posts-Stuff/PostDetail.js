@@ -21,7 +21,7 @@ export default function PostDetail() {
         <p>{ postDetail.description }</p>
         <p>{ postDetail.email }</p>
         {owner && (
-          <p>
+          <p aria-label="edit">
             <Link to={`/post/edit/${id}`}>Edit</Link>
           </p>
         )}
