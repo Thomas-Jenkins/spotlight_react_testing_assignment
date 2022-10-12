@@ -11,22 +11,22 @@ const mockUser = {
   id: '0dab2c65-5911-469c-9f12-8fb47ebe52f2',
   aud: 'authenticated',
   role: 'authenticated',
-  email: 'random@example.com'
+  email: 'random@temp.com'
 };
 
 
 
-render(
-  <UserProvider>
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
-  </UserProvider>
-);
 
   
 
 test('auth screen is displayed', () => {
+  render(
+    <UserProvider>
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    </UserProvider>
+  );
   const emailInput = screen.getByLabelText(/email/i);
   const passInput = screen.getByLabelText(/password/i);
   const buttonElem = screen.getByLabelText(/sign-in/i || /sign-up/i);
@@ -36,14 +36,21 @@ test('auth screen is displayed', () => {
 });
 
 test('can user sign in', async () => {
+  render(
+    <UserProvider>
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    </UserProvider>
+  );
   authFns.getUser.mockReturnValue(null);
   authFns.authUser.mockReturnValue(mockUser);
 
   // const headerElem = screen.getByText(/postmodern!/i);
   // expect(headerElem).toBeInTheDocument();
 
-  const emailInput = screen.getByLabelText(/Email/i);
-  fireEvent.change(emailInput, { target: { value: 'random@example.com' } }); 
+  const emailInput = screen.getByLabelText(/email/i);
+  fireEvent.change(emailInput, { target: { value: 'random@temp.com' } }); 
 
   const passInput = screen.getByLabelText(/password/i);
   fireEvent.change(passInput, { target: { value: 'temporary' } });
@@ -51,7 +58,7 @@ test('can user sign in', async () => {
   const button = screen.getByRole('button');
   fireEvent.click(button);
 
-  const headerText = await screen.findByText('Signed in as: random@example.com');
+  const headerText = await screen.findByLabelText('header');
   expect(headerText).toBeInTheDocument();
 
 });
