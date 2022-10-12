@@ -2,10 +2,10 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/NavBar/NavBar';
 import Auth from './components/Auth/Auth';
-import PostDetail from './components/Posts/PostDetail';
-import EditPostDetail from './components/Posts/EditPostsDetail';
-import Posts from './components/Posts/Posts';
-import CreatePost from './components/Posts/CreatePost';
+import PostDetail from './components/Posts-Stuff/PostDetail';
+import EditPostDetail from './components/Posts-Stuff/EditPostsDetail';
+import Posts from './components/Posts-Stuff/Posts';
+import CreatePost from './components/Posts-Stuff/CreatePost';
 
 function App() {
   return (

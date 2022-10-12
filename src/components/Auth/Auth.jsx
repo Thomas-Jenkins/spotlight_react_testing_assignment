@@ -27,13 +27,15 @@ export default function Auth() {
     <section>
       <div className="auth-header">
         <div>
-          <input className="form email-input" type="text" value={ email } onChange={(e) => setEmail(e.target.value)} placeholder="email" />
+          <label htmlFor='email'>Email</label>
+          <input id="email" className="form email-input" type="text" value={ email } onChange={(e) => setEmail(e.target.value)} placeholder="email" />
         </div>
         <div>
-          <input className="form password-input" type="password" value={ password } onChange={(e) => setPassword(e.target.value)} placeholder="password" />
+          <label htmlFor='password'>Password</label>
+          <input id='password' className="form password-input" type="password" value={ password } onChange={(e) => setPassword(e.target.value)} placeholder="password" />
         </div>
-
-        <button className="form auth-button" onClick={ authenticateUser }>{ type }</button>
+        <label htmlFor="go">{ type }</label>
+        <button id="go" className="form auth-button" onClick={ authenticateUser }>{ type }</button>
 
         {
           type === 'sign-in' ?

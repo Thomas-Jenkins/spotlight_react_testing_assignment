@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import PostCard from '../Posts/PostCard';
+import PostCard from './PostCard';
 import { usePosts } from '../hooks/usePosts';
 import { Redirect } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
